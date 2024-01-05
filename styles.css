@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+:root {
+  --primary-color: #f2f2f2;
+  --primary-sub: #e4e4e4;
+
+  --main-dark: #dfdfdf;
+  --second-dark: #3f3f3f;
+
+  --main-darker: #0c0c0c;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+
+  font-family: "Inter", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 0.15rem solid var(--main-dark);
+  border-radius: 2rem;
+  width: 40%;
+  height: 80%;
+}
+
+.game-title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+#game-container {
+  border: 0.15rem solid var(--main-dark);
+  border-radius: 2rem;
+  width: 80%;
+  height: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em;
+  padding: 1em;
+}
+
+.game-grid-space {
+  border: 0.1rem solid var(--main-dark);
+  border-radius: 2rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.game-grid-space.selected {
+  border: 0.1rem solid var(--primary-sub);
+}
+.game-grid-space.selected:hover {
+  transform: none;
+}
+
+.game-grid-space:hover {
+  transform: scale(1.08);
+}
+
+#game-options {
+  border: 0.15rem solid var(--main-dark);
+  border-radius: 2rem;
+  height: 10%;
+  width: 80%;
+}
