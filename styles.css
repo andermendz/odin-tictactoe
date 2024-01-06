@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+/* change all vertical and horizontal sizing units, fix it and make it responsive */
+
 :root {
   --primary-color: #f2f2f2;
   --primary-sub: #e4e4e4;
@@ -76,4 +78,3 @@ body {
   height: 10%;
   width: 80%;
 }
-
