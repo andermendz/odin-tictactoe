@@ -22,3 +22,6 @@ ander.giveReputation();
 console.log(ander.getReputation());
 
 console.log({name: ander.name, reputation: ander.getReputation()});
+
+
+
