@@ -1,27 +1,26 @@
 // function that return  its own properties
 // object variable of that function
-function createUser (name){
+function createPlayer (name){
     const discordName = '@' + name;
 
-    let reputation = 0;
+    let point = 0;
 
-    const getReputation = () => reputation;
-    const giveReputation = () => reputation++;
+    const getPoint = () => point;
+    const givePoint = () => point++;
 
-    return {name, discordName, getReputation, giveReputation}
+    return {name, discordName, getPoint, givePoint}
 }
 
 
-const ander = createUser('ander');
-
-console.log(ander.getReputation())
-
-ander.giveReputation();
-ander.giveReputation();
-
-console.log(ander.getReputation());
-
-console.log({name: ander.name, reputation: ander.getReputation()});
 
 
+function gameboardObject(){
 
+    let Gameboard = [];
+
+    return {Gameboard};
+}
+
+let Gameboard = gameboardObject();
+
+// an object to control the flow of the game itself.
