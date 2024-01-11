@@ -6,7 +6,18 @@
 
 const gameBoard = (() => {
 
-    let board = [];
+    let board = ['','','','','','','','',''];
+
+    const boardMechanics = (() => {
+       
+        
+        for (let i = 0; i < board.length; i++){
+            let choice = prompt('pick X or O')
+            board[i] = choice;
+         
+        }
+        console.log(board)
+    })();
 
     console.log("dadads")
 } )();
@@ -25,14 +36,3 @@ let Anderson = playerFactory('X',1)
 Anderson.addPoints();
 Anderson.getPoints();
 
-// TO-DO
-
-// an object to control the flow of the game itself.
-
-// do it in CONSOLE FIRST
-
-// start and restar and results at the end
-
-//  const changeSign = () 
-
-// x and =
