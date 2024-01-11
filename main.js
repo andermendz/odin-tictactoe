@@ -12,15 +12,54 @@ const gameBoard = (() => {
        
         
         for (let i = 0; i < board.length; i++){
-            let choice = prompt('pick X or O')
+            let choice = prompt(`pick X or O for position ${[i]} `  )
             board[i] = choice;
          
         }
+     
         console.log(board)
+
+        const boardChecker = ((board) => {
+
+            if ((board[0] === board[1] && board[1] === board[2])) {
+                console.log('true')
+                
+            } else  if ((board[2] === board[5] && board[5] === board[8])) {
+                console.log('true')
+                
+            } else  if ((board[8] === board[7] && board[7] === board[6])) {
+                console.log('true')
+                
+            } else  if ((board[6] === board[3] && board[3] === board[0])) {
+                console.log('true')
+                
+            } else  if ((board[0] === board[4] && board[4] === board[8])) {
+                console.log('true')
+                
+            } else  if ((board[6] === board[4] && board[4] === board[2])) {
+                console.log('true')
+                
+            } 
+            else {
+                console.log('false')
+            }
+    
+    
+        })(board);
+       
+     
     })();
 
-    console.log("dadads")
+  
+
+
+  
 } )();
+
+
+
+
+
 
 const playerFactory = (simbol,points) => {
 
