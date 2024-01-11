@@ -2,28 +2,28 @@
 // object variable of that function
 
 // factory function
-function createPlayer (name){
-    const discordName = '@' + name;
-
-    let point = 0;
-
-    const getPoint = () => point;
-    const givePoint = () => point++;
-
-    return {name, discordName, getPoint, givePoint}
-}
 
 
+const gameBoard = (() => {
 
+    let board = [];
 
-function gameboardObject(){
+    console.log("dadads")
+} )();
 
-    let Gameboard = [];
+const playerFactory = (simbol,points) => {
 
-    return {Gameboard};
-}
+    const addPoints = () => points++;
+    const getPoints = () => console.log(points);
 
-let Gameboard = gameboardObject();
+    return { simbol, addPoints, getPoints };
+  };
+  
+
+let Anderson = playerFactory('X',1)
+
+Anderson.addPoints();
+Anderson.getPoints();
 
 // TO-DO
 
@@ -32,3 +32,7 @@ let Gameboard = gameboardObject();
 // do it in CONSOLE FIRST
 
 // start and restar and results at the end
+
+//  const changeSign = () 
+
+// x and =
