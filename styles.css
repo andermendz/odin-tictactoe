@@ -12,7 +12,7 @@
   --main-darker: #0c0c0c;
 
   /* font-size: 16px; */
-  font-size: clamp(12px, 4vw, 24px);
+  font-size: clamp(14px, 4vw, 28px);
 }
 
 body {
