@@ -9,20 +9,22 @@ const gameBoard = (() => {
     let board = ['','','','','','','','',''];
 
     const boardMechanics = (() => {
+
+        
        
         
-        for (let i = 0; i < board.length; i++){
+        // for (let i = 0; i < board.length; i++){
 
-            let choice = prompt(`pick X or O for position ${[i]} `  )
-            while (choice !== 'O' && choice !== 'X'){
+        //     let choice = prompt(`pick X or O for position ${[i]} `  )
+        //     while (choice !== 'O' && choice !== 'X'){
                  
-                choice = prompt(`pick X or O for position ${[i]} `  )
-                console.log(choice)
-            } 
+        //         choice = prompt(`pick X or O for position ${[i]} `  )
+        //         console.log(choice)
+        //     } 
 
-            board[i] = choice;
+        //     board[i] = choice;
          
-        }
+        // }
      
         console.log(board)
 
@@ -54,6 +56,8 @@ const gameBoard = (() => {
          
           
         })(board);
+
+
         const boardDocumentManipulator = (()=>{
 
             for (let i = 0; i < board.length; i++){
