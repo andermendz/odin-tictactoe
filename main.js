@@ -63,7 +63,12 @@ gameModeTwoPlayers.onclick = (() => {
     })
     
 
-    // player one
+    // TO-DO
+
+    // add functional 2 players mode
+    // add AI mode
+    // add rounds 
+    // add restart
 })
 
 const boardChecker = (board) => {
