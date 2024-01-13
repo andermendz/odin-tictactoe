@@ -96,7 +96,7 @@ Restart
         space.onclick = () => {
           if (board[space.id] == ("X" || "O")) {
             console.log("selected");
-          } else if (board[space.id] == null) {
+          } else if (board[space.id] == null ) {
             console.log("not selected");
 
             board[space.id] = simbol;
@@ -116,6 +116,7 @@ Restart
               board = [];
               gridSpaces.forEach((space) => {
                 space.classList.add("selected");
+                board[space.id] = 'X';
               });
             } else {
               if (turn === 1) {
