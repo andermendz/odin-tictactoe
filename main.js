@@ -12,7 +12,7 @@ const playerFactory = (name, simbol, points) => {
 
 const game = (() => {
   let board = ["", "", "", "", "", "", "", "", ""];
-  let boardSpaces = document.querySelectorAll(".game-grid-space");
+  let gridSpaces = document.querySelectorAll(".game-grid-space");
   let gameOptionsActions = document.getElementById("game-options-actions");
   let gameOptionsMessage = document.getElementById("game-options-message");
 
@@ -66,7 +66,9 @@ Restart
     );
 
     gameModeTwoPlayers.onclick = () => {
-      boardSpaces.forEach((space) => {
+      
+      gridSpaces.forEach((space) => {
+        space.style.opacity = 1;
         board = [];
         space.classList.remove("selected");
         space.textContent = "";
@@ -90,7 +92,7 @@ Restart
 
       console.log({ playerOne, playerTwo });
       console.log(turn);
-      boardSpaces.forEach((space) => {
+      gridSpaces.forEach((space) => {
         space.onclick = () => {
           if (board[space.id] == ("X" || "O")) {
             console.log("selected");
@@ -101,7 +103,7 @@ Restart
             console.log(board[space.id]);
             space.classList.add("selected");
 
-            boardSpaces.forEach((space) => {
+            gridSpaces.forEach((space) => {
               space.textContent = board[space.id];
             });
 
@@ -112,7 +114,7 @@ Restart
             if (boardChecker(board)) {
               gameOptionsMessage.textContent = `Player ${turn} WINS`;
               board = [];
-              boardSpaces.forEach((space) => {
+              gridSpaces.forEach((space) => {
                 space.classList.add("selected");
               });
             } else {
