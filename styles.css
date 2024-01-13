@@ -72,11 +72,13 @@ body {
   
   border: 0.125rem solid var(--main-dark);
   border-radius: 1rem;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .game-grid-space.selected {
-  border: 0.125rem solid var(--primary-sub);
+  transition: all 0.2s ease-in-out;
+  border: 0.125rem soli var(--primary-color);
+  
 }
 .game-grid-space.selected:hover {
   transform: none;
@@ -119,7 +121,7 @@ body {
 
 
 .game-mode-button{
-  height: 2.2rem;
+  height: 2.4rem;
   width: 6rem;
   font-size: 0.6rem;
   border-radius: 0.8rem;

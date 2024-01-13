@@ -36,7 +36,7 @@ Two Players
 </button>
 `;
 
-let twoPlayersRestartMenu = ` 
+  let twoPlayersRestartMenu = ` 
 <button class="game-mode-button ai">
 <span class="material-symbols-outlined">
     smart_toy
@@ -57,84 +57,83 @@ Restart
 
   let startButton = document.getElementById("start-button");
 
-
   startButton.onclick = () => {
     gameOptionsMessage.textContent = "Select a Game Mode";
     gameOptionsActions.innerHTML = modesMenu;
-
-    
 
     let gameModeTwoPlayers = document.querySelector(
       ".game-mode-button.twoplayers"
     );
 
     gameModeTwoPlayers.onclick = () => {
-  
-
-     
       boardSpaces.forEach((space) => {
-        board = [''];
+        board = [];
+        space.classList.remove("selected");
         space.textContent = "";
       });
 
-     
       let playerOne = playerFactory("Player 1", "X", 0);
       let playerTwo = playerFactory("Player 2", "O", 0);
 
       let turn = 1;
       let simbol = playerOne.simbol;
-    
-      gameOptionsMessage.textContent = `${playerOne.name} Turn`
+
+      gameOptionsMessage.textContent = `${playerOne.name} Turn`;
       gameOptionsActions.innerHTML = twoPlayersRestartMenu;
 
-      let twoPlayersRestartButton = document.querySelector(".twoplayers-restart");
-      twoPlayersRestartButton.onclick = (() => {
+      let twoPlayersRestartButton = document.querySelector(
+        ".twoplayers-restart"
+      );
+      twoPlayersRestartButton.onclick = () => {
         gameModeTwoPlayers.onclick();
-      })
-    
+      };
 
       console.log({ playerOne, playerTwo });
-      console.log(turn)
+      console.log(turn);
       boardSpaces.forEach((space) => {
         space.onclick = () => {
-          
+          if (board[space.id] == ("X" || "O")) {
+            console.log("selected");
+          } else if (board[space.id] == null) {
+            console.log("not selected");
 
-          board[space.id] = simbol;
+            board[space.id] = simbol;
+            console.log(board[space.id]);
+            space.classList.add("selected");
 
-          boardSpaces.forEach((space)=>{
-            space.textContent = board[space.id];
-          })
-         
-          console.log(board);
-          boardChecker(board);
-          console.log(boardChecker(board));
+            boardSpaces.forEach((space) => {
+              space.textContent = board[space.id];
+            });
 
-         
-        
-          if(boardChecker(board)){
-            gameOptionsMessage.textContent = `Player ${turn } WINS`;
-            board = [''];
-            gameOptionsActions.innerHTML = twoPlayersRestartMenu;
-          } else {
-            if(turn === 1){
-              turn = 2;
-              simbol = playerTwo.simbol;
-              gameOptionsMessage.textContent = `${playerTwo.name} Turn`;
-            } else if (turn === 2){
-              turn = 1;
-              simbol = playerOne.simbol;
-              gameOptionsMessage.textContent = `${playerOne.name} Turn`;
+            console.log(board);
+            boardChecker(board);
+            console.log(boardChecker(board));
+
+            if (boardChecker(board)) {
+              gameOptionsMessage.textContent = `Player ${turn} WINS`;
+              board = [];
+              boardSpaces.forEach((space) => {
+                space.classList.add("selected");
+              });
+            } else {
+              if (turn === 1) {
+                turn = 2;
+                simbol = playerTwo.simbol;
+                gameOptionsMessage.textContent = `${playerTwo.name} Turn`;
+              } else if (turn === 2) {
+                turn = 1;
+                simbol = playerOne.simbol;
+                gameOptionsMessage.textContent = `${playerOne.name} Turn`;
+              }
             }
           }
 
-         
-          console.log(turn)
+          console.log(turn);
         };
       });
 
       // TO-DO
 
-   
       // add AI mode
       // add rounds
       // add restart
