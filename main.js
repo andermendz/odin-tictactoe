@@ -138,8 +138,8 @@ Restart
       // TO-DO
 
       // add AI mode
-      // add rounds
-      // add restart
+      // add visual help
+     
     };
 
     const boardChecker = (board) => {
