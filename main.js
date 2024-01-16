@@ -66,7 +66,6 @@ Restart
     );
 
     gameModeTwoPlayers.onclick = () => {
-      
       gridSpaces.forEach((space) => {
         space.style.opacity = 1;
         board = [];
@@ -96,7 +95,7 @@ Restart
         space.onclick = () => {
           if (board[space.id] == ("X" || "O")) {
             console.log("selected");
-          } else if (board[space.id] == null ) {
+          } else if (board[space.id] == null) {
             console.log("not selected");
 
             board[space.id] = simbol;
@@ -116,7 +115,7 @@ Restart
               board = [];
               gridSpaces.forEach((space) => {
                 space.classList.add("selected");
-                board[space.id] = 'X';
+                board[space.id] = "X";
               });
             } else {
               if (turn === 1) {
@@ -139,7 +138,6 @@ Restart
 
       // add AI mode
       // add visual help
-     
     };
 
     const boardChecker = (board) => {

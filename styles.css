@@ -22,7 +22,6 @@ body {
   height: 100vh;
   width: 100vw;
 
- 
   font-family: "Inter", sans-serif;
 
   display: flex;
@@ -30,7 +29,6 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 2em;
-  
 }
 
 #main-container {
@@ -66,10 +64,10 @@ body {
   opacity: 0;
   display: flex;
   justify-content: center;
-  
+
   font-size: 3rem;
   font-weight: 100;
-  
+
   border: 0.125rem solid var(--main-dark);
   border-radius: 1rem;
   transition: all 0.2s ease-in-out;
@@ -78,7 +76,6 @@ body {
 .game-grid-space.selected {
   transition: all 0.2s ease-in-out;
   border: 0.125rem soli var(--primary-color);
-  
 }
 .game-grid-space.selected:hover {
   transform: none;
@@ -98,20 +95,20 @@ body {
   padding: 0.8rem;
 }
 
-#game-options-message{
+#game-options-message {
   font-size: 0.9rem;
   font-weight: 800;
   text-align: center;
 }
 
-#game-options-actions{
+#game-options-actions {
   display: flex;
- justify-content: center;
+  justify-content: center;
   gap: 1.5rem;
   align-items: center;
 }
 
-#start-button{
+#start-button {
   height: 2rem;
   width: 4rem;
   font-size: 0.8rem;
@@ -120,8 +117,7 @@ body {
   background-color: var(--primary-sub);
 }
 
-
-.game-mode-button{
+.game-mode-button {
   height: 2.4rem;
   width: 6rem;
   font-size: 0.6rem;
@@ -135,22 +131,19 @@ body {
   justify-content: center;
 }
 
-.game-mode-button.ai{
-  
+.game-mode-button.ai {
 }
 
-.game-mode-button.twoplayers{
-  
+.game-mode-button.twoplayers {
 }
 
 .material-symbols-outlined {
   font-size: 1rem;
 }
-button{
+button {
   transition: all 0.2s ease-in-out;
 }
-button:hover{
+button:hover {
   transition: all 0.2s ease-in-out;
   transform: scale(1.08);
-  
 }
