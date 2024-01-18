@@ -91,37 +91,45 @@ Restart
 
     gameModeAI.onclick = () => {
 
-      console.log("dadasd")
+      console.log("bot mode pip pip pip plup")
+      
       gridSpaces.forEach((space) => {
         space.style.opacity = 1;
         board = [];
         space.classList.remove("selected");
         space.textContent = "";
+        
       });
 
-      let playerOne = playerFactory("Player 1", "X", 0);
-      let playerTwo = playerFactory("Player 2", "O", 0);
+      let player = playerFactory("Player", "X", 0);
+      let bot= playerFactory("Bot", "O", 0);
 
       let turn = 1;
-      let simbol = playerOne.simbol;
+      let simbol = player.simbol;
 
-      gameOptionsMessage.textContent = `${playerOne.name} Turn`;
+      gameOptionsMessage.textContent = `${player.name} Turn`;
       gameOptionsActions.innerHTML = aiModeRestartMenu;
 
       let aiRestartButton = document.querySelector(
         ".ai-restart"
       );
-      
+
       aiRestartButton.onclick = () => {
         gameModeAI.onclick();
       };
 
-      console.log({ playerOne, playerTwo });
+      console.log({ player, bot });
       console.log(turn);
 
 
       gridSpaces.forEach((space) => {
         space.onclick = () => {
+
+          // TODO - IDEA: simulate click and just listen to the click of the players
+          // once the player clicks pic a random number and click on it to use it as bot choice
+          // this would make the robot use the same system as the Player
+          // without overcomplicating the code
+          // .click();
           if (board[space.id] == ("X" || "O")) {
             console.log("selected");
           } else if (board[space.id] == null) {
@@ -140,7 +148,12 @@ Restart
             console.log(boardChecker(board));
 
             if (boardChecker(board)) {
-              gameOptionsMessage.textContent = `Player ${turn} WINS`;
+              if (turn == 1){
+                gameOptionsMessage.textContent = `${player.name} WINS`;
+              } else if (turn == 2){
+                gameOptionsMessage.textContent = `${bot.name} WINS`;
+              }
+              
               board = [];
               gridSpaces.forEach((space) => {
                 space.classList.add("selected");
@@ -149,12 +162,15 @@ Restart
             } else {
               if (turn === 1) {
                 turn = 2;
-                simbol = playerTwo.simbol;
-                gameOptionsMessage.textContent = `${playerTwo.name} Turn`;
+                simbol = bot.simbol;
+                let botSelection = Math.ceil(Math.random() * 9);
+              
+                gameOptionsMessage.textContent = `${bot.name} Turn`;
+              
               } else if (turn === 2) {
                 turn = 1;
-                simbol = playerOne.simbol;
-                gameOptionsMessage.textContent = `${playerOne.name} Turn`;
+                simbol = player.simbol;
+                gameOptionsMessage.textContent = `${player.name} Turn`;
               }
             }
           }
@@ -260,6 +276,12 @@ Restart
         (board[2] === "X" || board[2] === "O") &&
         board[2] === board[5] &&
         board[5] === board[8]
+      ) {
+        return true;
+      } else if (
+        (board[3] === "X" || board[3] === "O") &&
+        board[3] === board[4] &&
+        board[4] === board[5]
       ) {
         return true;
       } else if (
