@@ -37,6 +37,27 @@ Two Players
 </button>
 `;
 
+
+// AI GAME MODE MENU HTML CODE
+let aiModeRestartMenu = ` 
+<button class="game-mode-button ai">
+<span class="material-symbols-outlined">
+    smart_toy
+    </span>
+AI mode
+</button>
+
+<button class="game-mode-button ai-restart">
+<div>
+ <span class="material-symbols-outlined">
+restart_alt
+</span>
+</div>
+
+Restart
+</button>
+`;
+
 // TWO PLAYERS GAME MODE MENU HTML CODE
   let twoPlayersRestartMenu = ` 
 <button class="game-mode-button ai">
@@ -64,11 +85,13 @@ Restart
     gameOptionsActions.innerHTML = modesMenu;
 
     let gameModeTwoPlayers = document.querySelector(".game-mode-button.twoplayers");
-    let gmaeModeAI = document.document.querySelector(".game-mode-button.ai");
+    let gameModeAI = document.querySelector(".game-mode-button.ai");
 
     // BOT GAME MODE
 
     gameModeAI.onclick = () => {
+
+      console.log("dadasd")
       gridSpaces.forEach((space) => {
         space.style.opacity = 1;
         board = [];
@@ -83,13 +106,14 @@ Restart
       let simbol = playerOne.simbol;
 
       gameOptionsMessage.textContent = `${playerOne.name} Turn`;
-      gameOptionsActions.innerHTML = twoPlayersRestartMenu;
+      gameOptionsActions.innerHTML = aiModeRestartMenu;
 
-      let twoPlayersRestartButton = document.querySelector(
-        ".twoplayers-restart"
+      let aiRestartButton = document.querySelector(
+        ".ai-restart"
       );
-      twoPlayersRestartButton.onclick = () => {
-        gameModeTwoPlayers.onclick();
+      
+      aiRestartButton.onclick = () => {
+        gameModeAI.onclick();
       };
 
       console.log({ playerOne, playerTwo });
