@@ -128,7 +128,7 @@ Restart
           // TO-DO - IDEA: simulate click and just listen to the click of the players
           // once the player clicks pic a random number and click on it to use it as bot choice
           // this would make the robot use the same system as the Player
-          // without overcomplicating the code
+          // without complicating the code
           // .click();
           if (board[space.id] == ("X" || "O")) {
             console.log("selected");
