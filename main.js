@@ -125,7 +125,7 @@ Restart
       gridSpaces.forEach((space) => {
         space.onclick = () => {
 
-          // TODO - IDEA: simulate click and just listen to the click of the players
+          // TO-DO - IDEA: simulate click and just listen to the click of the players
           // once the player clicks pic a random number and click on it to use it as bot choice
           // this would make the robot use the same system as the Player
           // without overcomplicating the code
