@@ -1,7 +1,4 @@
-// function that return  its own properties
-// object variable of that function
-
-// factory function
+// PLAYERS FACTORY
 
 const playerFactory = (name, simbol, points) => {
   const addPoints = () => points++;
@@ -10,12 +7,16 @@ const playerFactory = (name, simbol, points) => {
   return { name, simbol, addPoints, getPoints };
 };
 
+// BOARD DECLARATION AND INITIAL QUERY SELECTIONS
 const game = (() => {
   let board = ["", "", "", "", "", "", "", "", ""];
   let gridSpaces = document.querySelectorAll(".game-grid-space");
   let gameOptionsActions = document.getElementById("game-options-actions");
   let gameOptionsMessage = document.getElementById("game-options-message");
 
+
+
+  // INITIAL GAME MENU HTML CODE
   let modesMenu = ` 
   <button class="game-mode-button ai">
   <span class="material-symbols-outlined">
@@ -36,6 +37,7 @@ Two Players
 </button>
 `;
 
+// TWO PLAYERS GAME MODE MENU HTML CODE
   let twoPlayersRestartMenu = ` 
 <button class="game-mode-button ai">
 <span class="material-symbols-outlined">
@@ -63,6 +65,8 @@ Restart
 
     let gameModeTwoPlayers = document.querySelector(".game-mode-button.twoplayers");
     let gmaeModeAI = document.document.querySelector(".game-mode-button.ai");
+
+    // BOT GAME MODE
 
     gameModeAI.onclick = () => {
       gridSpaces.forEach((space) => {
