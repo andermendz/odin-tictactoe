@@ -125,7 +125,14 @@ Restart
       gridSpaces.forEach((space) => {
         space.onclick = () => {
 
-          // TO-DO - IDEA: simulate click and just listen to the click of the players
+          
+          // TO-DO
+
+          // add AI mode
+          // add visual help
+
+          // TO-DO - IDEAS:
+          // simulate click and just listen to the click of the players
           // once the player clicks pic a random number and click on it to use it as bot choice
           // this would make the robot use the same system as the Player
           // without complicating the code
@@ -252,10 +259,6 @@ Restart
         };
       });
 
-      // TO-DO
-
-      // add AI mode
-      // add visual help
     };
 
     // BOARD CHECKING MECHANISM
@@ -314,5 +317,4 @@ Restart
     };
   };
 
- 
 })();
