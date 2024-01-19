@@ -170,9 +170,29 @@ Restart
               if (turn === 1) {
                 turn = 2;
                 simbol = bot.simbol;
-                let botSelection = Math.ceil(Math.random() * 9);
-              
+             
+
                 gameOptionsMessage.textContent = `${bot.name} Turn`;
+
+                let botSelection = Math.ceil(Math.random() * 8);
+
+                console.log(`Initial Bot Selection: ${botSelection}`);
+                while (gridSpaces[botSelection].classList.contains('selected')){
+                 botSelection = Math.ceil(Math.random() * 8);
+                console.log(`Bot selection is: ${botSelection} `);
+
+                if (gridSpaces[botSelection].classList.contains('selected') == false) {
+                  console.log(`botSelection ${botSelection} is not selected ` )
+                  break;
+                } 
+                } 
+
+                gridSpaces[botSelection].click()
+
+                
+             
+                
+              
               
               } else if (turn === 2) {
                 turn = 1;
