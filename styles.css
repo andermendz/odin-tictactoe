@@ -96,7 +96,7 @@ body {
 }
 
 #game-options-message {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 800;
   text-align: center;
 }
@@ -146,4 +146,19 @@ button {
 button:hover {
   transition: all 0.2s ease-in-out;
   transform: scale(1.08);
+}
+
+#game-visuals{
+
+}
+
+#game-visuals-announc{
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.game-visuals-guide{
+
 }
