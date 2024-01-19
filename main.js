@@ -98,9 +98,10 @@ Restart
     gameModeAI.onclick = () => {
       console.log("bot mode pip pip pip plup");
 
-      gameVisualsAnnouncement.textContent = 'AI MODE';
+      gameVisualsAnnouncement.textContent = "AI MODE";
       gameVisualsAnnouncement.style.opacity = 1;
 
+      gameVisualsGuide.style.opacity = 0;
 
       gridSpaces.forEach((space) => {
         space.style.opacity = 1;
@@ -136,17 +137,6 @@ Restart
 
       gridSpaces.forEach((space) => {
         space.onclick = () => {
-          // TO-DO
-
-          // add AI mode
-          // add visual help
-
-          // TO-DO - IDEAS:
-          // simulate click and just listen to the click of the players
-          // once the player clicks pic a random number and click on it to use it as bot choice
-          // this would make the robot use the same system as the Player
-          // without complicating the code
-          // .click();
           if (board[space.id] == ("X" || "O")) {
             console.log("selected");
           } else if (board[space.id] == null) {
@@ -219,9 +209,10 @@ Restart
 
     // TWO PLAYERS GAME MODE
     gameModeTwoPlayers.onclick = () => {
-
-      gameVisualsAnnouncement.textContent = 'TWO PLAYERS MODE';
+      gameVisualsAnnouncement.textContent = "TWO PLAYERS MODE";
       gameVisualsAnnouncement.style.opacity = 1;
+
+      gameVisualsGuide.style.opacity = 1;
 
       gridSpaces.forEach((space) => {
         space.style.opacity = 1;

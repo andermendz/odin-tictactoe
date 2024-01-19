@@ -148,17 +148,45 @@ button:hover {
   transform: scale(1.08);
 }
 
-#game-visuals{
+#game-visuals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 
+  transition: all 0.4s ease-in-out;
 }
 
-#game-visuals-announc{
+#game-visuals-announc {
+  text-align: center;
   opacity: 0;
   transition: all 0.4s ease-in-out;
   font-size: 2rem;
   font-weight: 800;
 }
 
-.game-visuals-guide{
+#game-visuals-guide {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-radius: 0.8rem;
+  width: 16rem;
+  height: 6rem;
+  border: 0.125rem solid var(--primary-sub);
+  display: flex;
+}
 
+.game-visuals-guide-player {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--main-dark);
+  border-radius: 0.8rem;
+}
+
+.game-visuals-guide-player-name {
+  font-size: 1rem;
+  font-weight: 200;
+}
+.game-visuals-guide-player-simbol {
+  font-size: 3rem;
 }
