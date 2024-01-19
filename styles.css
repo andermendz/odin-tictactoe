@@ -171,8 +171,8 @@ button:hover {
   justify-content: space-around;
   padding: 10px;
   border-radius: 0.8rem;
-  width: 16rem;
-  height: 6rem;
+  width: 12rem;
+  height: 4.2rem;
   border: 0.125rem solid var(--primary-sub);
   display: flex;
 
@@ -182,16 +182,16 @@ button:hover {
 
 .game-visuals-guide-player{
   text-align: center;
-  padding: 1rem;
+  padding: 0.6rem;
   background-color: var(--main-dark);
   border-radius: 0.8rem;
 }
 
 .game-visuals-guide-player-name{
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 200;
 }
 .game-visuals-guide-player-simbol{
 
-  font-size: 3rem;
+  font-size: 2rem;
 }
