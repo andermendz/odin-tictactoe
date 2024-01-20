@@ -166,6 +166,9 @@ Restart
                 space.classList.add("selected");
                 board[space.id] = "X";
               });
+            } else if (drawChecker(board) ){
+              gameOptionsMessage.textContent = 'DRAW';
+              
             } else {
               if (turn === 1) {
                 turn = 2;
@@ -264,6 +267,8 @@ Restart
             boardChecker(board);
             console.log(boardChecker(board));
 
+              
+        
             if (boardChecker(board)) {
               gameOptionsMessage.textContent = `Player ${turn} WINS`;
               board = [];
@@ -271,19 +276,27 @@ Restart
                 space.classList.add("selected");
                 board[space.id] = "X";
               });
+            
+            } else if (drawChecker(board) ){
+              gameOptionsMessage.textContent = 'DRAW';
+
             } else {
+             
               if (turn === 1) {
+               
                 turn = 2;
                 simbol = playerTwo.simbol;
                 gameOptionsMessage.textContent = `${playerTwo.name} Turn`;
+                
               } else if (turn === 2) {
                 turn = 1;
                 simbol = playerOne.simbol;
                 gameOptionsMessage.textContent = `${playerOne.name} Turn`;
+               
               }
             }
           }
-
+      
           console.log(turn);
         };
       });
@@ -343,5 +356,22 @@ Restart
         return false;
       }
     };
+
+    const drawChecker = (board) => {
+
+     if (!boardChecker(board) && board.length == 9){
+      draw = true;
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] !== 'X' && board[i] !== 'O'){
+          console.log(board[i])
+          draw = false;
+        }
+      }
+
+       return draw;
+     }
+    }
+   
   };
 })();
+
