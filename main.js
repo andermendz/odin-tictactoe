@@ -166,9 +166,8 @@ Restart
                 space.classList.add("selected");
                 board[space.id] = "X";
               });
-            } else if (drawChecker(board) ){
-              gameOptionsMessage.textContent = 'DRAW';
-              
+            } else if (drawChecker(board)) {
+              gameOptionsMessage.textContent = "DRAW";
             } else {
               if (turn === 1) {
                 turn = 2;
@@ -176,27 +175,49 @@ Restart
 
                 gameOptionsMessage.textContent = `${bot.name} Turn`;
 
-                let botSelection = Math.ceil(Math.random() * 8);
+                let lines = [
+                  [0, 1, 2],
+                  [1, 4, 7],
+                  [2, 5, 8],
+                  [3, 4, 5],
+                  [8, 7, 6],
+                  [6, 3, 0],
+                  [0, 4, 8],
+                  [6, 4, 2],
+                ];
 
-                console.log(`Initial Bot Selection: ${botSelection}`);
-                while (
-                  gridSpaces[botSelection].classList.contains("selected")
-                ) {
-                  botSelection = Math.ceil(Math.random() * 8);
-                  console.log(`Bot selection is: ${botSelection} `);
+                let playedLine = 0;
+                lines.forEach((line) => {
+                  let coincidence = 0;
 
-                  if (
-                    gridSpaces[botSelection].classList.contains("selected") ==
-                    false
-                  ) {
-                    console.log(
-                      `botSelection ${botSelection} is not selected `
-                    );
-                    break;
+                  for (let i = 0; i < line.length; i++) {
+                    if (gridSpaces[line[i]].textContent == "X") {
+                      coincidence++;
+                      console.log(
+                        " lines is " +
+                          line +
+                          " and coincidence is " +
+                          coincidence
+                      );
+                    }
                   }
-                }
 
-                gridSpaces[botSelection].click();
+                  if (coincidence == 2 && turn == 2) {
+                    console.log("coincidence found");
+
+                    for (let i = 0; i < line.length; i++) {
+                      if (gridSpaces[line[i]].textContent == "") {
+                        gridSpaces[line[i]].click();
+                        playedLine = 1;
+                        break;
+                      }
+                    }
+                  }
+                });
+
+                if (playedLine == 0) {
+                  randomChoice();
+                }
               } else if (turn === 2) {
                 turn = 1;
                 simbol = player.simbol;
@@ -267,8 +288,6 @@ Restart
             boardChecker(board);
             console.log(boardChecker(board));
 
-              
-        
             if (boardChecker(board)) {
               gameOptionsMessage.textContent = `Player ${turn} WINS`;
               board = [];
@@ -276,27 +295,21 @@ Restart
                 space.classList.add("selected");
                 board[space.id] = "X";
               });
-            
-            } else if (drawChecker(board) ){
-              gameOptionsMessage.textContent = 'DRAW';
-
+            } else if (drawChecker(board)) {
+              gameOptionsMessage.textContent = "DRAW";
             } else {
-             
               if (turn === 1) {
-               
                 turn = 2;
                 simbol = playerTwo.simbol;
                 gameOptionsMessage.textContent = `${playerTwo.name} Turn`;
-                
               } else if (turn === 2) {
                 turn = 1;
                 simbol = playerOne.simbol;
                 gameOptionsMessage.textContent = `${playerOne.name} Turn`;
-               
               }
             }
           }
-      
+
           console.log(turn);
         };
       });
@@ -358,20 +371,34 @@ Restart
     };
 
     const drawChecker = (board) => {
+      if (!boardChecker(board) && board.length == 9) {
+        draw = true;
+        for (let i = 0; i < board.length; i++) {
+          if (board[i] !== "X" && board[i] !== "O") {
+            console.log(board[i]);
+            draw = false;
+          }
+        }
 
-     if (!boardChecker(board) && board.length == 9){
-      draw = true;
-      for (let i = 0; i < board.length; i++) {
-        if (board[i] !== 'X' && board[i] !== 'O'){
-          console.log(board[i])
-          draw = false;
+        return draw;
+      }
+    };
+
+    const randomChoice = () => {
+      let botSelection = Math.ceil(Math.random() * 8);
+
+      console.log(`Initial Bot Selection: ${botSelection}`);
+      while (gridSpaces[botSelection].classList.contains("selected")) {
+        botSelection = Math.ceil(Math.random() * 8);
+        console.log(`Bot selection is: ${botSelection} `);
+
+        if (gridSpaces[botSelection].classList.contains("selected") == false) {
+          console.log(`botSelection ${botSelection} is not selected `);
+          break;
         }
       }
 
-       return draw;
-     }
-    }
-   
+      gridSpaces[botSelection].click();
+    };
   };
 })();
-
